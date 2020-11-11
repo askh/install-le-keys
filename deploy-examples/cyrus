@@ -1,6 +1,6 @@
 #!/bin/bash
 
-systemctl stop cyrus
-install-le-keys example.com /usr/local/etc/ssl/example.com root mail 660
-systemctl start cyrus
+systemctl stop cyrus-imapd
+install-le-keys example.com /usr/local/etc/ssl/example.com root mail 640
+systemctl start cyrus-imapd
 

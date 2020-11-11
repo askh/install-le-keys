@@ -1,6 +1,6 @@
 #!/bin/bash
 
 systemctl stop postfix
-install-le-keys example.com /var/spool/postfix/etc/ssl/certs postfix root 600
+install-le-keys example.com /var/spool/postfix/etc/ssl/certs/example.com postfix root 600
 systemctl start postfix
 
