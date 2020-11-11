@@ -9,13 +9,14 @@ MODE=$5
 EXIT_CODE_NORMAL=0
 EXIT_CODE_ERROR=1
 
-funtcion error_message
+function error_message
 {
     echo "$1" 1>&2
 }
 
 if [[ $# == 0 ]]
-    local script_name=$(basename $0)
+then
+    script_name=$(basename $0)
     echo "Usage: $script_name DOMAIN DESTINATION_DIR OWNER GROUP MODE"
     exit $EXIT_CODE_ERROR
 fi
@@ -30,8 +31,8 @@ then
     fi
     for i in cert chain fullchain privkey
     do
-        local current_name=$i.pem
-	local real_name=$(realpath "$RENEWED_LINEAGE/$current_name")
+        current_name=$i.pem
+	real_name=$(realpath "$RENEWED_LINEAGE/$current_name")
         if [[ ! -r $real_name ]]
         then
             error_message "File $real_name doesn't exists"
